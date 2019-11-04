@@ -12,6 +12,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.CheckReturnValue;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -22,7 +24,8 @@ import static io.restassured.http.ContentType.JSON;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT, classes = Application.class)
 class CustomerControllerTest {
 
-    private CustomerService customerService;
+    @Value("${server.port}")
+    private int port;
 
     @Test
     void givenACustomer_whenPostCustomer_thenCustomerIsAddedToRepository() {
@@ -49,7 +52,7 @@ class CustomerControllerTest {
                 .accept(JSON)
                 .contentType(JSON)
                 .when()
-                .port(8981)
+                .port(port)
                 .post("/eurder/customers")
                 .then()
                 .assertThat()

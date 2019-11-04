@@ -40,6 +40,12 @@ public class CustomerController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/{id}", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public CustomerDto getCustomerBasedOnId(@PathVariable String id) {
+        logger.info("GET request with id mapping to id : {} ", id);
+        return customerMapper.mapMemberToDto(customerService.getCustomerById(id));
+    }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
