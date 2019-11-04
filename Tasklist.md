@@ -6,27 +6,28 @@
 - [x] Maven
 - [x] Spring Boot
 - [x] Github Repo
-- [ ] Logging
+- [x] Logging
 - [ ] Rest
 - [ ] Security
 - [x] SwaggerUI
 
 ### 2. Must-Have Stories
 
-- [ ] Story 1
+- [x] Story 1
     * Tests:
         * [x] Write CustomerRepoTest
         * [x] Write CustomerServiceTest (Mock)
-        * [ ] Write CustomerControllerTest (integration/end-to-end)
+        * [x] Write CustomerControllerTest (integration/end-to-end)
     * [x] Create Customer Object
     * [x] Create Customer Repository
     * [x] Create Customer Service
     * [x] Create Customer Dtos
     * [x] Create Customer Controller
-    * [ ] Edge cases!
+    * [x] Edge cases!
+    * [ ] Validation
 - [ ] Story 2
 - [ ] Story 3
-- [ ] Story 7
+- [x] Story 7
 - [ ] Story 8
 
 ### 3. Nice-To-Have Stories

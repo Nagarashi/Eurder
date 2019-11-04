@@ -21,13 +21,13 @@ public class CustomerMapper {
                 .setPhoneNumber(customer.getPhoneNumber());
     }
 
-    private EmailDto mapEmailToDto(Email email) {
+    public EmailDto mapEmailToDto(Email email) {
         return new EmailDto()
                 .setAddress(email.getAddress())
                 .setDomain(email.getDomain());
     }
 
-    private AddressDto mapAddressToDto (Address address) {
+    public AddressDto mapAddressToDto (Address address) {
         return new AddressDto()
                 .setStreet(address.getStreet())
                 .setHouseNumber(address.getHouseNumber())
