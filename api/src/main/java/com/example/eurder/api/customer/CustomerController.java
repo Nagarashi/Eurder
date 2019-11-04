@@ -40,6 +40,7 @@ public class CustomerController {
                 .collect(Collectors.toList());
     }
 
+
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public CustomerDto createCustomer(@RequestBody CreateCustomerDto createCustomerDto) {

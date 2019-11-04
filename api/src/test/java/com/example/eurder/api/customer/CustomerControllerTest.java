@@ -49,7 +49,7 @@ class CustomerControllerTest {
                 .accept(JSON)
                 .contentType(JSON)
                 .when()
-                .port(8080)
+                .port(8981)
                 .post("/eurder/customers")
                 .then()
                 .assertThat()
