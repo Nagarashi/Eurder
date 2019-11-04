@@ -2,11 +2,17 @@ package com.example.eurder.api.customer.dtos;
 
 public class CustomerDto {
 
+    private String id;
     private String firstName;
     private String lastName;
-    private EmailDto emailDto;
-    private AddressDto addressDto;
+    private EmailDto email;
+    private AddressDto address;
     private String phoneNumber;
+
+    public CustomerDto setid(String id) {
+        this.id = id;
+        return this;
+    }
 
     public CustomerDto setFirstName(String firstName) {
         this.firstName = firstName;
@@ -18,13 +24,13 @@ public class CustomerDto {
         return this;
     }
 
-    public CustomerDto setEmailDto(EmailDto emailDto) {
-        this.emailDto = emailDto;
+    public CustomerDto setEmail(EmailDto email) {
+        this.email = email;
         return this;
     }
 
-    public CustomerDto setAddressDto(AddressDto addressDto) {
-        this.addressDto = addressDto;
+    public CustomerDto setAddress(AddressDto address) {
+        this.address = address;
         return this;
     }
 
@@ -32,6 +38,11 @@ public class CustomerDto {
         this.phoneNumber = phoneNumber;
         return this;
     }
+
+    public String getId() {
+        return id;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -42,11 +53,11 @@ public class CustomerDto {
     }
 
     public EmailDto getEmail() {
-        return emailDto;
+        return email;
     }
 
     public AddressDto getAddress() {
-        return addressDto;
+        return address;
     }
 
     public String getPhoneNumber() {

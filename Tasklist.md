@@ -9,19 +9,21 @@
 - [ ] Logging
 - [ ] Rest
 - [ ] Security
+- [x] SwaggerUI
 
 ### 2. Must-Have Stories
 
 - [ ] Story 1
     * Tests:
         * [x] Write CustomerRepoTest
-        * [ ] Write CustomerServiceTest (Mock)
+        * [x] Write CustomerServiceTest (Mock)
         * [ ] Write CustomerControllerTest (integration/end-to-end)
     * [x] Create Customer Object
     * [x] Create Customer Repository
-    * [ ] Create Customer Service
-    * [ ] Create Customer Dtos
-    * [ ] Create Customer Controller
+    * [x] Create Customer Service
+    * [x] Create Customer Dtos
+    * [x] Create Customer Controller
+    * [ ] Edge cases!
 - [ ] Story 2
 - [ ] Story 3
 - [ ] Story 7

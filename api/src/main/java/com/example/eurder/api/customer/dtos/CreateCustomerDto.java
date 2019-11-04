@@ -5,7 +5,7 @@ public class CreateCustomerDto {
     private String firstName;
     private String lastName;
     private EmailDto email;
-    private AddressDto addressDto;
+    private AddressDto address;
     private String phoneNumber;
 
     public CreateCustomerDto setFirstName(String firstName) {
@@ -23,8 +23,8 @@ public class CreateCustomerDto {
         return this;
     }
 
-    public CreateCustomerDto setAddressDto(AddressDto addressDto) {
-        this.addressDto = addressDto;
+    public CreateCustomerDto setAddress(AddressDto addressDto) {
+        this.address = addressDto;
         return this;
     }
 
@@ -46,7 +46,7 @@ public class CreateCustomerDto {
     }
 
     public AddressDto getAddress() {
-        return addressDto;
+        return address;
     }
 
     public String getPhoneNumber() {

@@ -13,10 +13,11 @@ public class CustomerMapper {
 
     public CustomerDto mapMemberToDto(Customer customer) {
         return new CustomerDto()
+                .setid(customer.getId())
                 .setFirstName(customer.getFirstName())
                 .setLastName(customer.getLastName())
-                .setEmailDto(mapEmailToDto(customer.getEmail()))
-                .setAddressDto(mapAddressToDto(customer.getAddress()))
+                .setEmail(mapEmailToDto(customer.getEmail()))
+                .setAddress(mapAddressToDto(customer.getAddress()))
                 .setPhoneNumber(customer.getPhoneNumber());
     }
 

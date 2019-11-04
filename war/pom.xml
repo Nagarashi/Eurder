@@ -11,6 +11,13 @@
 
     <artifactId>war</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.example.eurder</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
