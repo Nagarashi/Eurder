@@ -1,10 +1,12 @@
-package com.example.eurder.domain.customer;
+package com.example.eurder.customer;
 
+import com.example.eurder.domain.customer.Address;
+import com.example.eurder.domain.customer.Customer;
+import com.example.eurder.domain.customer.CustomerRepository;
+import com.example.eurder.domain.customer.Email;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerRepositoryTest {
 
