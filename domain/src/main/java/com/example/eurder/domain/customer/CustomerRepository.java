@@ -1,8 +1,11 @@
 package com.example.eurder.domain.customer;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CustomerRepository {
 
     private List<Customer> customers;

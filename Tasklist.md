@@ -13,7 +13,10 @@
 ### 2. Must-Have Stories
 
 - [ ] Story 1
-    * [x] Write CustomerRepoTest
+    * Tests:
+        * [x] Write CustomerRepoTest
+        * [ ] Write CustomerServiceTest (Mock)
+        * [ ] Write CustomerControllerTest (integration/end-to-end)
     * [x] Create Customer Object
     * [x] Create Customer Repository
     * [ ] Create Customer Service
