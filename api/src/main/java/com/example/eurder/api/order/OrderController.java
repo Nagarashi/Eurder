@@ -7,6 +7,8 @@ import com.example.eurder.domain.order.Order;
 import com.example.eurder.service.customer.CustomerService;
 import com.example.eurder.service.item.ItemService;
 import com.example.eurder.service.order.OrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 @RequestMapping("eurder/orders")
 public class OrderController {
 
+    private Logger logger = LoggerFactory.getLogger(OrderController.class);
     private OrderService orderService;
     private CustomerService customerService;
     private ItemService itemService;
@@ -34,6 +37,7 @@ public class OrderController {
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public List<OrderDto> getAllOrders() {
+        logger.info("GET request for all orders");
         return orderService.getAllOrders().stream()
                 .map(order -> orderMapper.mapOrderToDto(order))
                 .collect(Collectors.toList());
@@ -42,6 +46,7 @@ public class OrderController {
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public OrderDto createOrder(@RequestBody CreateOrderDto createOrderDto) {
+        logger.info("POST request for a single order");
         return orderMapper.mapOrderToDto(
                 orderService.saveOrder(new Order(
                         getItemGroup(createOrderDto),
@@ -51,8 +56,8 @@ public class OrderController {
     private List<ItemGroup> getItemGroup(@RequestBody CreateOrderDto createOrderDto) {
         List<ItemGroup> itemGroups = createOrderDto.getItemGroupList()
                 .stream()
-        .map(createItemGroupDto -> new ItemGroup(itemService.getItemById(createItemGroupDto.getItem().getId()), createItemGroupDto.getOrderAmount()))
-        .collect(Collectors.toList());
+                .map(createItemGroupDto -> new ItemGroup(itemService.getItemById(createItemGroupDto.getItem().getId()), createItemGroupDto.getOrderAmount()))
+                .collect(Collectors.toList());
         itemGroups.stream()
                 .forEach(itemGroup -> itemService.getItemById(itemGroup.getItem().getId()).setItemsInStock(itemGroup.getOrderAmount()));
 
