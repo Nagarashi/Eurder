@@ -1,7 +1,6 @@
 package com.example.eurder.api.order.dtos;
 
 import com.example.eurder.api.customer.dtos.CustomerDto;
-import com.example.eurder.domain.order.ItemGroup;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class CreateOrderDto {
         return itemGroupList;
     }
 
-    public CustomerDto getCustomerDto() {
+    public CustomerDto getCustomer() {
         return customer;
     }
 }

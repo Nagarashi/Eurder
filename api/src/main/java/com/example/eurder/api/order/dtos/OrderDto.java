@@ -10,7 +10,7 @@ public class OrderDto {
     private String id;
     private List<ItemGroupDto> itemGroupList;
     private CustomerDto customer;
-    private double totalPrice;
+    private double totalOrderPrice;
 
     public OrderDto setId(String id) {
         this.id = id;
@@ -27,8 +27,8 @@ public class OrderDto {
         return this;
     }
 
-    public OrderDto setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public OrderDto setTotalOrderPrice(double totalOrderPrice) {
+        this.totalOrderPrice = totalOrderPrice;
         return this;
     }
 
@@ -44,7 +44,7 @@ public class OrderDto {
         return customer;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public double getTotalOrderPrice() {
+        return totalOrderPrice;
     }
 }

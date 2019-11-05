@@ -45,7 +45,7 @@ public class OrderController {
         return orderMapper.mapOrderToDto(
                 orderService.saveOrder(new Order(
                         getItemGroup(createOrderDto),
-                        customerService.getCustomerById(createOrderDto.getCustomerDto().getId()))));
+                        customerService.getCustomerById(createOrderDto.getCustomer().getId()))));
     }
 
     private List<ItemGroup> getItemGroup(@RequestBody CreateOrderDto createOrderDto) {

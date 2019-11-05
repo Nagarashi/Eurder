@@ -1,14 +1,13 @@
 package com.example.eurder.api.order.dtos;
 
 import com.example.eurder.api.item.dtos.ItemDto;
-import com.example.eurder.domain.item.Item;
 
 import java.time.LocalDate;
 
 public class ItemGroupDto {
 
     private ItemDto item;
-    private double totalPrice;
+    private double pricePerItemGroup;
     private int orderAmount;
     private LocalDate shippingDate;
 
@@ -17,8 +16,8 @@ public class ItemGroupDto {
         return this;
     }
 
-    public ItemGroupDto setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public ItemGroupDto setTotalPrice(double pricePerItemGroup) {
+        this.pricePerItemGroup = pricePerItemGroup;
         return this;
     }
 
@@ -37,7 +36,7 @@ public class ItemGroupDto {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        return pricePerItemGroup;
     }
 
     public int getOrderAmount() {

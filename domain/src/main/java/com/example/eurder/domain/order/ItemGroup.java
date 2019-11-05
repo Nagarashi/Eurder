@@ -10,14 +10,14 @@ public class ItemGroup {
     private static final int NEXT_WEEK_DELIVERY = 7;
 
     private final Item item;
-    private final double totalPrice;
+    private final double totalPriceOfItemGroup;
     private final int orderAmount;
     private final LocalDate shippingDate;
 
     public ItemGroup(Item item, int orderAmount) {
         this.item = item;
         this.orderAmount = orderAmount;
-        this.totalPrice = getPriceOfItemGroup();
+        this.totalPriceOfItemGroup = getPriceOfItemGroup();
         this.shippingDate = setShippingDate();
     }
 
@@ -31,8 +31,8 @@ public class ItemGroup {
         return item.getPriceInEuro() * orderAmount;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public double getTotalPriceOfItemGroup() {
+        return totalPriceOfItemGroup;
     }
 
     public int getOrderAmount() {

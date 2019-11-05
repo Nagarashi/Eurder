@@ -30,14 +30,14 @@ public class OrderMapper {
                 .setItemGroupList(order.getItemGroupList().stream()
                         .map(this::mapItemGroupToDto)
                         .collect(Collectors.toList()))
-                .setTotalPrice(order.getTotalPrice());
+                .setTotalOrderPrice(order.getTotalPrice());
     }
 
-    public ItemGroupDto mapItemGroupToDto (ItemGroup itemGroup) {
+    private ItemGroupDto mapItemGroupToDto(ItemGroup itemGroup) {
         return new ItemGroupDto()
                 .setItem(itemMapper.mapItemToDto(itemGroup.getItem()))
                 .setOrderAmount(itemGroup.getOrderAmount())
-                .setTotalPrice(itemGroup.getTotalPrice())
+                .setTotalPrice(itemGroup.getTotalPriceOfItemGroup())
                 .setShippingDate(itemGroup.getShippingDate());
     }
 }
