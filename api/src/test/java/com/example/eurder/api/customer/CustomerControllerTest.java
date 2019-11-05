@@ -1,5 +1,6 @@
 package com.example.eurder.api.customer;
 
+import com.example.eurder.api.Application;
 import com.example.eurder.api.customer.dtos.AddressDto;
 import com.example.eurder.api.customer.dtos.CreateCustomerDto;
 import com.example.eurder.api.customer.dtos.CustomerDto;
