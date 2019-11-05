@@ -35,7 +35,7 @@ public class ItemGroupDto {
         return item;
     }
 
-    public double getTotalPrice() {
+    public double getPricePerItemGroup() {
         return pricePerItemGroup;
     }
 

@@ -2,6 +2,8 @@ package com.example.eurder.api.order;
 
 import com.example.eurder.api.order.dtos.CreateOrderDto;
 import com.example.eurder.api.order.dtos.OrderDto;
+import com.example.eurder.api.order.dtos.reports.MultipleOrdersReportDto;
+import com.example.eurder.api.order.dtos.reports.SingleOrderReportDto;
 import com.example.eurder.domain.order.ItemGroup;
 import com.example.eurder.domain.order.Order;
 import com.example.eurder.service.customer.CustomerService;
@@ -41,6 +43,14 @@ public class OrderController {
         return orderService.getAllOrders().stream()
                 .map(order -> orderMapper.mapOrderToDto(order))
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/customer/{customerId}", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public MultipleOrdersReportDto getOrdersPerCustomer(@PathVariable String customerId) {
+        return orderMapper.mapOrdersReportToDto(
+                orderService.getOrdersByCustomer(customerId)
+        );
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")

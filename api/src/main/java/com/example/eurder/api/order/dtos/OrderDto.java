@@ -40,7 +40,7 @@ public class OrderDto {
         return itemGroupList;
     }
 
-    public CustomerDto getCustomerDto() {
+    public CustomerDto getCustomer() {
         return customer;
     }
 
