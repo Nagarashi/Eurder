@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Customer {
 
-    private String id;
+    private final String id;
     private String firstName;
     private String lastName;
     private Email email;

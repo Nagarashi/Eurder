@@ -25,13 +25,13 @@
     * [x] Create Customer Controller
     * [x] Edge cases!
     * [ ] Validation
-- [ ] Story 2
-    * [ ] Create Item Object
-    * [ ] Create Item Repo
-    * [ ] Create Item Service 
-    * [ ] Create Item Dtos
-    * [ ] Create Item Controller
-    * [ ] Tests for each of the above
+- [x] Story 2
+    * [x] Create Item Object
+    * [x] Create Item Repo
+    * [x] Create Item Service 
+    * [x] Create Item Dtos
+    * [x] Create Item Controller
+    * [x] Tests for each of the above
     * [ ] Edge cases?
 - [ ] Story 3
 - [x] Story 7

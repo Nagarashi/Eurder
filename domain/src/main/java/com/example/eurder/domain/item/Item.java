@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Item {
 
-    private String id;
+    private final String id;
     private String name;
     private String description;
     private double priceInEuro;
