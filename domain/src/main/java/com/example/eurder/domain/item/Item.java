@@ -10,6 +10,10 @@ public class Item {
     private double priceInEuro;
     private int amountInStock;
 
+    public Item(Item that) {
+        this(that.getName(), that.getDescription(), that.getPriceInEuro(), that.getAmountInStock());
+    }
+
     public Item(String name, String description, double priceInEuro, int amountInStock) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
@@ -36,5 +40,11 @@ public class Item {
 
     public int getAmountInStock() {
         return amountInStock;
+    }
+
+    public void setItemsInStock(int amount) {
+        if (amount > this.getAmountInStock())
+            amountInStock = 0;
+        amountInStock -= amount;
     }
 }

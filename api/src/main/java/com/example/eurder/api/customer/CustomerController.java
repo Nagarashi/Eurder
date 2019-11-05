@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/eurder/customers")
+@RequestMapping(path = "eurder/customers")
 public class CustomerController {
 
     private Logger logger = LoggerFactory.getLogger(CustomerController.class);
@@ -36,7 +36,7 @@ public class CustomerController {
     public List<CustomerDto> getAllCustomers() {
         logger.info("GET request for all customers");
         return customerService.getAllCustomers().stream()
-                .map(customer -> customerMapper.mapMemberToDto(customer))
+                .map(customer -> customerMapper.mapCustomerToDto(customer))
                 .collect(Collectors.toList());
     }
 
@@ -44,7 +44,7 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.OK)
     public CustomerDto getCustomerBasedOnId(@PathVariable String id) {
         logger.info("GET request with id mapping to id : {} ", id);
-        return customerMapper.mapMemberToDto(customerService.getCustomerById(id));
+        return customerMapper.mapCustomerToDto(customerService.getCustomerById(id));
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
@@ -58,7 +58,7 @@ public class CustomerController {
             EmailDto email = createCustomerDto.getEmail();
             Email myEmail = new Email(email.getAddress(), email.getDomain());
 
-            return customerMapper.mapMemberToDto(
+            return customerMapper.mapCustomerToDto(
                     customerService.addCustomer(new Customer(
                             createCustomerDto.getFirstName(),
                             createCustomerDto.getLastName(),

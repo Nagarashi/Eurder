@@ -20,4 +20,6 @@ public class ItemService {
     public Item addItem(Item item) { return itemRepository.addItem(item); }
 
     public List<Item> getAllItems() { return itemRepository.getAllItems(); }
+
+    public Item getItemById (String id) { return itemRepository.getItemById(id); }
 }

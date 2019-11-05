@@ -33,7 +33,8 @@
     * [x] Create Item Controller
     * [x] Tests for each of the above
     * [ ] Edge cases?
-- [ ] Story 3
+- [x] Story 3
+- [ ] Story 3 Tests!
 - [x] Story 7
 - [x] Story 8
 
