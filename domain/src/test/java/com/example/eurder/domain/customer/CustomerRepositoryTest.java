@@ -21,7 +21,7 @@ class CustomerRepositoryTest {
     }
 
     @Test
-    void givenMember_whenAddingMember_memberIsAddedToRepository() {
+    void givenCustomer_whenAddingCustomer_customerIsAddedToRepository() {
         Assertions.assertThat(customerRepository.getAllCustomers()).contains(customer);
     }
 

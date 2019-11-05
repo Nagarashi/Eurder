@@ -7,7 +7,7 @@
 - [x] Spring Boot
 - [x] Github Repo
 - [x] Logging
-- [ ] Rest
+- [x] Rest
 - [ ] Security
 - [x] SwaggerUI
 
@@ -26,9 +26,16 @@
     * [x] Edge cases!
     * [ ] Validation
 - [ ] Story 2
+    * [ ] Create Item Object
+    * [ ] Create Item Repo
+    * [ ] Create Item Service 
+    * [ ] Create Item Dtos
+    * [ ] Create Item Controller
+    * [ ] Tests for each of the above
+    * [ ] Edge cases?
 - [ ] Story 3
 - [x] Story 7
-- [ ] Story 8
+- [x] Story 8
 
 ### 3. Nice-To-Have Stories
 

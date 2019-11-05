@@ -5,14 +5,14 @@ import com.example.eurder.api.customer.dtos.CreateCustomerDto;
 import com.example.eurder.api.customer.dtos.CustomerDto;
 import com.example.eurder.api.customer.dtos.EmailDto;
 import com.example.eurder.domain.customer.Address;
+import com.example.eurder.domain.customer.Customer;
+import com.example.eurder.domain.customer.CustomerRepository;
 import com.example.eurder.domain.customer.Email;
-import com.example.eurder.service.customer.CustomerService;
 import io.restassured.RestAssured;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.CheckReturnValue;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -27,6 +27,26 @@ class CustomerControllerTest {
     @Value("${server.port}")
     private int port;
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    @Test
+    void givenListOfCustomers_whenGettingAllCustomers_returnsAllCustomersInRepository() {
+
+        RestAssured
+                .given()
+                .contentType(JSON)
+                .when()
+                .port(port)
+                .get("/eurder/customers")
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.OK.value())
+                .extract()
+                .body()
+                .jsonPath().getList(".", CustomerDto.class);
+    }
+
     @Test
     void givenACustomer_whenPostCustomer_thenCustomerIsAddedToRepository() {
         AddressDto addressDto = new AddressDto()
@@ -40,7 +60,7 @@ class CustomerControllerTest {
                 .setDomain("@gmail.com");
 
         CreateCustomerDto newCustomer = new CreateCustomerDto()
-                .setFirstName("Kai")
+                .setFirstName("Kai2")
                 .setLastName("Van Landschoot")
                 .setAddress(addressDto)
                 .setEmail(emailDto)
@@ -67,5 +87,29 @@ class CustomerControllerTest {
         Assertions.assertThat(postedCustomer.getAddress()).isEqualToComparingFieldByField(newCustomer.getAddress());
         Assertions.assertThat(postedCustomer.getEmail()).isEqualToComparingFieldByField(newCustomer.getEmail());
 
+    }
+
+    @Test
+    void givenListOfCustomers_whenGettingCustomerById_thenReturnsExactlyThatCustomer() {
+
+        Customer existingCustomer = customerRepository.saveCustomer(new Customer("Kai", "Van Landschoot",
+                new Email("kai.vanlandschoot", "@gmail.com"),
+                new Address("Frank Van Ackerpromeande", 6, "8000", "Brugge"),
+                "+32494151225"));
+
+        CustomerDto returnedCustomer =
+                RestAssured
+                        .given()
+                        .contentType(JSON)
+                        .when()
+                        .port(port)
+                        .get("/eurder/customers/" + existingCustomer.getId())
+                        .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.OK.value())
+                        .extract()
+                        .as(CustomerDto.class);
+
+        Assertions.assertThat(returnedCustomer.getId()).isEqualTo(existingCustomer.getId());
     }
 }

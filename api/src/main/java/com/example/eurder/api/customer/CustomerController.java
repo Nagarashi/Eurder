@@ -34,7 +34,7 @@ public class CustomerController {
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public List<CustomerDto> getAllCustomers() {
-        logger.info("GET request for all /customers/");
+        logger.info("GET request for all customers");
         return customerService.getAllCustomers().stream()
                 .map(customer -> customerMapper.mapMemberToDto(customer))
                 .collect(Collectors.toList());
@@ -50,7 +50,7 @@ public class CustomerController {
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public CustomerDto createCustomer(@RequestBody CreateCustomerDto createCustomerDto) {
-        logger.info("POST request for a single /customer/ ");
+        logger.info("POST request for a single customer ");
         if (isValidInput(createCustomerDto)) {
             AddressDto address = createCustomerDto.getAddress();
             Address myAddress = new Address(address.getStreet(), address.getHouseNumber(), address.getZipCode(), address.getCity());

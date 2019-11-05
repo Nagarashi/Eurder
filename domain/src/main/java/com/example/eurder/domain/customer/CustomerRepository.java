@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 
@@ -19,10 +18,6 @@ public class CustomerRepository {
 
     public CustomerRepository() {
         this.customers = new ConcurrentHashMap<>();
-        customers.put(UUID.randomUUID().toString() , new Customer("Kai", "Van Landschoot",
-                new Email("kai.vanlandschoot", "@gmail.com"),
-                new Address("Frank Van Ackerpromeande", 6, "8000", "Brugge"),
-                "+32494151225"));
     }
 
     public Customer saveCustomer (Customer customer) {
